@@ -1,3 +1,4 @@
+package jobsheet_1;
 public class fungsi {
 
     static int[][] stockBunga = {
