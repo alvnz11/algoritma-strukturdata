@@ -5,6 +5,7 @@ public class BukuMain04 {
         
         Buku04 bk1 = new Buku04(); // instansiasi tanpa konstruktor
         Buku04 bk2 = new Buku04("Self Reward", "Maheera Ayesha", 160, 29, 59000); // instansiasi dengan konstruktor
+        Buku04 bukuAlvanza = new Buku04("Laskar Pelangi", "Andrea Hirata", 124, 25, 69000) ;
 
         // tanpa konstruktor
         bk1.judul = "Today Ends Tomorrow Comes";
@@ -21,5 +22,11 @@ public class BukuMain04 {
         // dengan konstruktor
         bk2.terjual(11);
         bk2.tampilInformasi();
+
+        System.out.println();
+        bukuAlvanza.tampilInformasi();
+        bukuAlvanza.terjual(16);
+        bukuAlvanza.restock(10);
+        bukuAlvanza.tampilInformasi();
     }
 }
