@@ -2,7 +2,7 @@ package Pertemuan2.jobsheet_2;
 
 public class Buku04 {
     String judul, pengarang;
-    int halaman, stok, harga;
+    int halaman, stok, harga, jual;
 
     public Buku04() {
 
@@ -26,6 +26,7 @@ public class Buku04 {
 
     void terjual(int jml) {
         if (stok > 0) {
+            jual = jml;
             stok -= jml;
         }
     }
@@ -36,6 +37,24 @@ public class Buku04 {
 
     void gantiHarga(int hrg) {
         harga = hrg;
+    }
+
+    int hitungHargaTotal() {
+        return harga * jual;
+    }
+
+    int hitungDiskon() {
+        if(hitungHargaTotal() >= 150000) {
+            return (hitungHargaTotal() * 12/100);
+        } else if(hitungHargaTotal() >= 75000 && hitungHargaTotal() < 150000) {
+            return (hitungHargaTotal() * 5/100);
+        } else {
+            return 0;
+        }
+    }
+
+    int hitungHargaBayar() {
+        return  hitungHargaTotal() - hitungDiskon();
     }
 
 }
