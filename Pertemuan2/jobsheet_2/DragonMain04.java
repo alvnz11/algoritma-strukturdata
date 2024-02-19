@@ -4,11 +4,11 @@ import java.util.*;
 
 public class DragonMain04 {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         
         Dragon04 player = new Dragon04();
 
         while (true) {
-            Scanner input = new Scanner(System.in);
 
             if (player.x < 0 || player.y < 0 || player.x > player.width || player.y > player.height) {
                 break;
