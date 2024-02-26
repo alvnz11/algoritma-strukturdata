@@ -8,9 +8,12 @@ public class arrayObject {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        persegiPanjang[] ppArray = new persegiPanjang[3];
+        System.out.print("Masukkan jumlah persegi panjang : ");
+        int jml = sc.nextInt();
 
-        for(int i = 0; i < 3; i++) {
+        persegiPanjang[] ppArray = new persegiPanjang[jml];
+
+        for(int i = 0; i < jml; i++) {
             ppArray[i] = new persegiPanjang();
             System.out.println("Persegi panjang ke-" + i);
             System.out.print("Masukkan panjang: ");
@@ -19,7 +22,7 @@ public class arrayObject {
             ppArray[i].lebar = sc.nextInt();
         }
 
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < jml; i++) {
             System.out.println("Persegi panjang ke-" + i);
             System.out.println("panjang: " + ppArray[i].panjang + ", lebar: " + ppArray[i].lebar);
         }
