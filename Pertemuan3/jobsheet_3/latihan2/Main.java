@@ -50,7 +50,7 @@ public class Main {
             System.out.println();            
         }
 
-        // System.out.printf("Rata-Rata IPK\t= %.2f", rataIPK(nilai));
-        // System.out.println("\nIPK Tertinggi\t= " + ipkBesar(nilai));
+        System.out.printf("Rata-Rata IPK\t= %.2f", rataIPK(nilai));
+        System.out.println("\nIPK Tertinggi\t= " + ipkBesar(nilai));
     }
 }
