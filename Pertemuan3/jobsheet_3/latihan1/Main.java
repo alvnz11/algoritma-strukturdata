@@ -1,4 +1,4 @@
-package Pertemuan3.jobsheet_3.latihan;
+package Pertemuan3.jobsheet_3.latihan1;
 
 import java.util.*;
 import java.lang.Math;
