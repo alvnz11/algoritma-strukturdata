@@ -21,30 +21,32 @@
 
     ### 5.2.3 Pertanyaan Percobaan 1
 1. Terdapat di method apakah proses bubble sort?
-    - a
+    - Terdapat pada method bubblesort() pada class DaftarMahasiswaBerprestasi.
+
 2. Di dalam method bubbleSort(), terdapat baris program seperti di bawah ini:
 
     <img src = "lampiran/p12.PNG">
 
     Untuk apakah proses tersebut?
 
-    - a
+    - Untuk membandingkan dan menukar nilai ipk dari index j dan j-1, apabila index j nya lebih besar, maka nilainya akan ditukar ke index j-1. 
+
 3. Perhatikan perulangan di dalam bubbleSort() di bawah ini:
 
     <img src = "lampiran/p13.PNG">
 
     a. Apakah perbedaan antara kegunaan perulangan i dan perulangan j? 
-    - a
+    - Perulangan i mengontrol jumlah iterasi pengurutan, sedangkan perulangan j digunakan untuk membandingkan elemen dalam array.
 
     b. Mengapa syarat dari perulangan i adalah i<listMhs.length-1 ?
-    - a
+    - Supaya perulangan sesuai dengan jumlah index yang ada pada Array Object listMhs. Hal ini memastikan bahwa semua yang ada dalam array object tersebut dapat dibandingkan nilainya
 
     c. Mengapa syarat dari perulangan j adalah j<listMhs.length-i ?
-    - a
+    - untuk mencegah perbandingan elemen yang tidak ada dan memastikan semua elemen dibandingkan nilainya
 
     d. Jika banyak data di dalam listMhs adalah 50, maka berapakali perulangan i akan 
     berlangsung? Dan ada berapa Tahap bubble sort yang ditempuh?
-    - a
+    - Perulangan i akan berlangsung sebanyak 49x dan tahap yang ditempuhnya tidak dapat dipastikan secara langsung, karena jika data sudah secara kebetulan terurut maka hanya membutuhkan 1 tahap, dan jika data benar-benar acak, maka akan membutuhkan n-1 tahap dimana n merupakan jumlah data yang dalam konteks ini terdapat 49 tahap jika datanya benar-benar teracak.
 
 * ## 5.3 Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Selection Sort
 
@@ -65,7 +67,7 @@
 
     Untuk apakah proses tersebut, jelaskan!
 
-    - a
+    - Untuk membandingkan nilai pada index ke i dan index ke i+1, jika index i+1 lebih kecil daripada i, maka indexnya akan ditukar melalui variabel idxMin. 
 
 * ## 5.4 Mengurutkan Data Mahasiswa Berdasarkan IPK Menggunakan Insertion Sort
 
@@ -81,7 +83,26 @@
 
     ### 5.4.3 Pertanyaan Percobaan 3
 1. Ubahlah fungsi pada InsertionSort sehingga fungsi ini dapat melaksanakan proses sorting dengan cara descending.
-    - a
+    - Method Insertion Sort
+
+    ```java
+   void insertionSort() {
+        for(int i = 1; i < listMhs.length; i++) {
+            Mahasiswa tmp = listMhs[i];
+            int j = i;
+            while(j > 0 && listMhs[j - 1].ipk < tmp.ipk) {
+                listMhs[j] = listMhs[j-1];
+                j--;
+            }
+            listMhs[j] = tmp;
+        }
+    }
+    ```
+
+    - Hasil Output :
+
+    <img src = "lampiran/outp31.PNG">
+
 
 * ## 5.5 Latihan Praktikum
 Sebuah platform travel yang menyediakan layanan pemesanan kebutuhan travelling sedang 
