@@ -1,3 +1,4 @@
+package Mahasiswa;
 public class Mahasiswa {
     String nama;
     int umur, thnMasuk;

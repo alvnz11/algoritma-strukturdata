@@ -1,3 +1,4 @@
+package Mahasiswa;
 public class Main {
     public static void main(String[] args) {
         DaftarMahasiswaBerprestasi list = new DaftarMahasiswaBerprestasi();
@@ -16,8 +17,16 @@ public class Main {
         System.out.println("Data Mahasiswa sebelum sorting");
         list.tampil();
 
-        System.out.println("\nData Mahasiswa setelah sorting desc berdasarkan ipk");
+        System.out.println("\nData Mahasiswa setelah sorting desc berdasarkan ipk(bubble)");
         list.bubblesort();
+        list.tampil();
+        
+        System.out.println("\nData Mahasiswa setelah sorting asc berdasarkan ipk(selection)");
+        list.selectionSort();
+        list.tampil();
+
+        System.out.println("\nData Mahasiswa setelah sorting desc berdasarkan ipk(insertion)");
+        list.insertionSort();
         list.tampil();
     }    
 }
