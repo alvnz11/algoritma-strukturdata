@@ -49,7 +49,7 @@ public class DaftarMahasiswaBerprestasi {
         for(int i = 1; i < listMhs.length; i++) {
             Mahasiswa tmp = listMhs[i];
             int j = i;
-            while(j > 0 && listMhs[j - 1].ipk > tmp.ipk) {
+            while(j > 0 && listMhs[j - 1].ipk < tmp.ipk) {
                 listMhs[j] = listMhs[j-1];
                 j--;
             }
