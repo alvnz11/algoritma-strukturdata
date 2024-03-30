@@ -42,5 +42,10 @@ public class BukuMain04 {
         int posisi = data.findSeqSearch(cari);
         data.tampilPosisi(cari, posisi);
         data.tampilData(cari, posisi);
+        System.out.println("======================================");
+        System.out.println("Menggunakan Binary Search");
+        posisi = data.findBinarySearch(cari, 0, jumBuku - 1);
+        data.tampilPosisi(cari, posisi);
+        data.tampilData(cari, posisi);
     }
 }

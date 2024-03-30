@@ -49,5 +49,24 @@ public class PencarianBuku04 {
             System.out.println("--Tidak Dapat Menampilkan Data Buku Karena Data Buku Tidak Ditemukan--");
         }
     }
+
+    public void findBuku() {
+
+    }
+
+    public int findBinarySearch(int cari, int left, int right) {
+        int mid;
+        if(right >= left) {
+            mid = left + (right - left) / 2;
+            if(cari == listBk[mid].kodeBuku) {
+                return mid;
+            } else if(listBk[mid].kodeBuku > cari) {
+                return findBinarySearch(cari, left, (mid-1));
+            } else {
+                return findBinarySearch(cari, (mid+1), right);
+            }
+        }
+        return -1;
+    }
 }
  
