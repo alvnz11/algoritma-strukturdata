@@ -8,7 +8,7 @@ public class BukuMain04 {
         Scanner s1 = new Scanner(System.in);
         
         PencarianBuku04 data = new PencarianBuku04();
-        int jumBuku = 5;
+        int jumBuku = 2;
         
         System.out.println("---------------------------------------");
         System.out.println("Masukkan data buku secara urut dari Kode Buku terecil : ");
@@ -42,6 +42,10 @@ public class BukuMain04 {
         int posisi = data.findSeqSearch(cari);
         data.tampilPosisi(cari, posisi);
         data.tampilData(cari, posisi);
+        System.out.println("______________________________________");
+        System.out.println("Data Menggunakan Method findBuku()");
+        Buku04 dataBuku = data.findBuku(cari);
+        dataBuku.tampilDataBuku();
         System.out.println("======================================");
         System.out.println("Menggunakan Binary Search");
         posisi = data.findBinarySearch(cari, 0, jumBuku - 1);

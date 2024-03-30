@@ -1,7 +1,7 @@
 package TestSearching.P7.Buku;
 
 public class PencarianBuku04 {
-    Buku04 listBk[] = new Buku04[5];
+    Buku04 listBk[] = new Buku04[2];
     int idx;
 
     void tambah(Buku04 m) {
@@ -50,8 +50,15 @@ public class PencarianBuku04 {
         }
     }
 
-    public void findBuku() {
-
+    public Buku04 findBuku(int cari) {
+        int posisi = -1;
+        for(int j = 0; j < listBk.length; j++) {
+            if(listBk[j].kodeBuku == cari) {
+                posisi = j;
+                break;
+            }
+        }
+        return listBk[posisi];
     }
 
     public int findBinarySearch(int cari, int left, int right) {
