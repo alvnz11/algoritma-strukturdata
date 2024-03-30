@@ -8,10 +8,10 @@ public class BukuMain04 {
         Scanner s1 = new Scanner(System.in);
         
         PencarianBuku04 data = new PencarianBuku04();
-        int jumBuku = 2;
+        int jumBuku = 5;
         
         System.out.println("---------------------------------------");
-        System.out.println("Masukkan data buku secara urut dari Kode Buku terecil : ");
+        System.out.println("Masukkan data buku secara urut dari Kode Buku terkecil : ");
         for(int i = 0; i < jumBuku; i++) {
             System.out.println("===================");
             System.out.print("Kode Buku : ");

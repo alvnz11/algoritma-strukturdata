@@ -1,7 +1,7 @@
 package TestSearching.P7.Buku;
 
 public class PencarianBuku04 {
-    Buku04 listBk[] = new Buku04[2];
+    Buku04 listBk[] = new Buku04[5];
     int idx;
 
     void tambah(Buku04 m) {
@@ -67,7 +67,7 @@ public class PencarianBuku04 {
             mid = left + (right - left) / 2;
             if(cari == listBk[mid].kodeBuku) {
                 return mid;
-            } else if(listBk[mid].kodeBuku > cari) {
+            } else if(listBk[mid].kodeBuku < cari) {
                 return findBinarySearch(cari, left, (mid-1));
             } else {
                 return findBinarySearch(cari, (mid+1), right);
