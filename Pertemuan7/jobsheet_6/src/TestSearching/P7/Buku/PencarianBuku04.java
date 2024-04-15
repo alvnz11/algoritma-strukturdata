@@ -79,7 +79,7 @@ public class PencarianBuku04 {
     //     return -1;
     // }
 
-        // String
+        // Kode Buku String
     public int findSeqSearchString(String cari) {
         int posisi = -1;
         for(int j = 0; j < listBk.length; j++) {
@@ -114,7 +114,7 @@ public class PencarianBuku04 {
         }
     }
 
-        // String
+        // Kode Buku String
     public int findBinarySearchString(String cari, int left, int right) {
         if (right < left) {
             return -1;
@@ -144,7 +144,7 @@ public class PencarianBuku04 {
 
         // Search judul
     public int findSeqSearchJudul(String cariJudul) {
-        int posisi = 0;
+        int posisi = -1;
         for(int j = 0; j < listBk.length; j++) {
             if(listBk[j].judulBuku.equalsIgnoreCase(cariJudul)) {
                 posisi = j;
@@ -162,9 +162,19 @@ public class PencarianBuku04 {
         if (cariJudul.equalsIgnoreCase(listBk[mid].judulBuku)) {
             return mid;
         } else if (cariJudul.compareTo(listBk[mid].judulBuku) < 0) {
-            return findBinarySearchString(cariJudul, left, mid - 1);
+            return findBinarySearchJudul(cariJudul, left, mid - 1);
         } else {
-            return findBinarySearchString(cariJudul, mid + 1, right);
+            return findBinarySearchJudul(cariJudul, mid + 1, right);
         }
+    }
+
+    public int hitung(String cari) {
+        int jml = 0;
+        for(int i = 0; i < listBk.length; i++) {
+            if (listBk[i].judulBuku != null && listBk[i].judulBuku.equalsIgnoreCase(cari)) {
+                jml++;
+            }
+        }
+        return jml;
     }
 }

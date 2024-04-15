@@ -33,7 +33,7 @@ public class BukuMain04 {
         data.tambah(m4);
         Buku04 m2 = new Buku04("123", "Big data", 2020, "Susilo", 3);
         data.tambah(m2);
-        Buku04 m5 = new Buku04("127", "Etika mahasiswa", 2023, "Darmawan Adi", 2);
+        Buku04 m5 = new Buku04("127", "Algoritma", 2023, "Darmawan Adi", 2);
         data.tambah(m5);
         Buku04 m3 = new Buku04("126", "Desain UI", 2021, "Supriadi", 3);
         data.tambah(m3);
@@ -83,15 +83,19 @@ public class BukuMain04 {
                 System.out.println("Masukkan judul buku yang dicari: ");
                 System.out.print("Judul buku : ");
                 String cariJudul = s1.nextLine();
-                System.out.println("Menggunakan Sequential Search");
-                int pos1 = data.findSeqSearchJudul(cariJudul);
-                data.tampilPosisiString(cariJudul, pos1);
-                data.tampilDataString(cariJudul, pos1);
-                System.out.println("======================================");
-                System.out.println("Menggunakan Binary Search");
-                pos = data.findBinarySearchJudul(cariJudul, 0, jumBuku - 1);
-                data.tampilPosisiString(cariJudul, pos1);
-                data.tampilDataString(cariJudul, pos1);
+                if(data.hitung(cariJudul) > 1 ){
+                    System.out.println("Data ditemukan sebanyak " + data.hitung(cariJudul));
+                } else {
+                    System.out.println("Menggunakan Sequential Search");
+                    int pos1 = data.findSeqSearchJudul(cariJudul);
+                    data.tampilPosisiString(cariJudul, pos1);
+                    data.tampilDataString(cariJudul, pos1);
+                    System.out.println("======================================");
+                    System.out.println("Menggunakan Binary Search");
+                    int pos2 = data.findBinarySearchJudul(cariJudul, 0, jumBuku - 1);
+                    data.tampilPosisiString(cariJudul, pos2);
+                    data.tampilDataString(cariJudul, pos2);
+                }
                     break;
             
                 default:
