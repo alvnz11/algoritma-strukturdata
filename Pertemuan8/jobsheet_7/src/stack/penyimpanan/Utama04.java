@@ -6,11 +6,15 @@ public class Utama04 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Gudang04 gudang = new Gudang04(7);
+        System.out.print("Input kapasitas Gudang : ");
+        int kap = scanner.nextInt();
+        scanner.nextLine();
+
+        Gudang04 gudang = new Gudang04(kap);
 
         while (true) {
             System.out.println("\nMenu:");
-            System.out.println("1. Tambah Barang\n2. Ambil Barang\n3. Tampilkan tumpukan barang\n4. Keluar");
+            System.out.println("1. Tambah Barang\n2. Ambil Barang\n3. Tampilkan tumpukan barang\n4. Tampilkan Barang Teratas\n5. Exit");
             System.out.print("Pilih Operasi : ");
             int pilihan = scanner.nextInt();
             scanner.nextLine();
@@ -37,6 +41,10 @@ public class Utama04 {
                     break;
             
                 case 4:
+                    gudang.lihatBarangTop();
+                    break;
+
+                case 5:
                     System.exit(pilihan);
                     break;
             
