@@ -48,6 +48,11 @@ public class Main {
         System.out.print("Masukkan angka yang ingin dicari : ");
         int search = sc.nextInt();
         int pos = searching(search, 0, data.length-1);
-        System.out.println("Angka yang anda cari ada pada index ke " + pos);
+        if (pos != -1) {
+            System.out.println("Angka yang anda cari ada pada index ke " + pos);
+        } else {
+            System.out.println("Angka yang anda cari tidak ditemukan");
+            
+        }
     }
 }
