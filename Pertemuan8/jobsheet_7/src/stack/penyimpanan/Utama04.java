@@ -14,7 +14,7 @@ public class Utama04 {
 
         while (true) {
             System.out.println("\nMenu:");
-            System.out.println("1. Tambah Barang\n2. Ambil Barang\n3. Tampilkan tumpukan barang\n4. Tampilkan Barang Teratas\n5. Exit");
+            System.out.println("1. Tambah Barang\t\t5. Tampilkan Barang Terbawah\n2. Ambil Barang\t\t\t6. Cari Barang\n3. Tampilkan Tumpukan Barang\t0. Exit\n4. Tampilkan Barang Teratas");
             System.out.print("Pilih Operasi : ");
             int pilihan = scanner.nextInt();
             scanner.nextLine();
@@ -45,10 +45,50 @@ public class Utama04 {
                     break;
 
                 case 5:
+                    gudang.lihatBarangTerbawah();
+                    break;
+
+                case 6:
+                    System.out.println("Menu:");
+                    System.out.println("1. Kode Barang\n2. Nama Barang");
+                    System.out.print("Pilih Operasi : ");
+                    int pilih = scanner.nextInt();
+                    scanner.nextLine();
+                    switch (pilih) {
+                        case 1:
+                            System.out.print("Masukkan kode barang yang anda cari : ");
+                            int cari = scanner.nextInt();
+                            gudang.cariKodeBarang(cari);
+                            if (gudang.cariKodeBarang(cari) == true) {
+                                System.out.println("Barang yang anda cari ada di dalam gudang");
+                            } else {
+                                System.out.println("Barang yang anda cari tidak ada di dalam gudang");	
+                            }
+                            break;
+
+                        case 2:
+                            System.out.print("Masukkan nama barang yang anda cari : ");
+                            String cariNama = scanner.nextLine();
+                            gudang.cariNamaBarang(cariNama);
+                            if (gudang.cariNamaBarang(cariNama) == true) {
+                                System.out.println("Barang yang anda cari ada di dalam gudang");
+                            } else {
+                                System.out.println("Barang yang anda cari tidak ada di dalam gudang");	
+                            }
+                            break;
+                    
+                        default:
+                            System.out.println("Error, Coba Lagi!!");
+                            break;
+                    }
+                    break;
+
+                case 0:
                     System.exit(pilihan);
                     break;
             
                 default:
+                    System.out.println("Error, Coba Lagi!!");
                     break;
             }
         }

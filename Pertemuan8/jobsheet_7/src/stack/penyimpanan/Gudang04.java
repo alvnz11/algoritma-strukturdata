@@ -64,6 +64,17 @@ public class Gudang04 {
         }
     }
 
+    // soal latihan
+    public Barang04 lihatBarangTerbawah() {
+        if(!cekKosong()) {
+            System.out.println("Barang terbawah : " + tumpukan[0].nama);
+            return tumpukan[0];
+        } else {
+            System.out.println("Tumpukan barang kosong");
+            return null;
+        }
+    }
+
     public void tampilkanBarang() {
         if(!cekKosong()) {
             System.out.println("Rincian tumpukan barang di Gudang : ");
@@ -88,5 +99,23 @@ public class Gudang04 {
             biner += stack.pop();
         }
         return biner;
+    }
+
+    public boolean cariKodeBarang(int cari) {
+        for(int i = 0; i < tumpukan.length; i++) {
+            if(tumpukan[i].kode == cari) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean cariNamaBarang(String cari) {
+        for(int i = 0; i < tumpukan.length; i++) {
+            if(tumpukan[i].nama.equalsIgnoreCase(cari)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
