@@ -124,3 +124,65 @@
         - Cek antrian paling belakang
 
         <img src = "lampiran/outp2lat3.PNG">
+
+* ## 10.4 Tugas
+
+1. Buatlah program antrian untuk mengilustasikan pesanan disebuah warung. Ketika seorang pembeli akan mengantri, maka dia harus mendaftarkan nama, dan nomor HP seperti yang digambarkan pada Class diagram berikut:
+
+    <img src = "lampiran/soallat1.PNG">
+
+    Class diagram Queue digambarkan sebagai berikut:
+
+    <img src = "lampiran/soallat2.PNG">
+
+    Keterangan:
+
+    • Method create(), isEmpty(), isFull(), enqueue(), dequeue() dan print(), kegunaannya sama seperti
+    yang telah dibuat pada Praktikum
+
+    • Method peek(): digunakan untuk menampilkan data Pembeli yang berada di posisi antrian paling
+    depan
+
+    • Method peekRear(): digunakan untuk menampilkan data Pembeli yang berada di posisi antrian
+    paling belakang
+
+    • Method peekPosition(): digunakan untuk menampilkan seorang pembeli (berdasarkan nama)
+    posisi antrian ke berapa
+
+    • Method daftarPembeli(): digunakan untuk menampilkan data seluruh pembeli 
+
+    Jawab :
+
+    - Output Tampilan Menu
+
+    <img src = "lampiran/outlat1.PNG">
+
+    - Input Antrian Baru
+
+    <img src = "lampiran/outlat2.PNG">
+
+    - Mengeluarkan Antrian
+
+    <img src = "lampiran/outlat3.PNG">
+
+    - Cek Semua Antrian
+
+    <img src = "lampiran/outlat4.PNG">
+
+    - Cek Antrian Terdepan
+
+    <img src = "lampiran/outlat5.PNG">
+
+    - Cek Antrian Paling Belakang
+
+    <img src = "lampiran/outlat6.PNG">
+
+    - Cek Posisi Antrian Dengan Nama
+
+    <img src = "lampiran/outlat7.PNG">
+
+    - Mengosongkan Semua Antrian
+
+    <img src = "lampiran/outlat8.PNG">
+
+    <img src = "lampiran/outlat9.PNG">
