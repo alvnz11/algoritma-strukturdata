@@ -83,12 +83,12 @@ public class SingleLinkedList {
         }
     }
 
-    int getData(int index) {
+    Mahasiswa getData(int index) {
         Node tmp = head;
         for(int i = 0; i < index; i++) {
             tmp = tmp.next;
         }
-        return tmp.data.nim;
+        return tmp.data;
     }
 
     int indexOf(int key) {
