@@ -46,11 +46,11 @@ public class LinkedList {
         if(isEmpty()) {
             head = ndInput;
             tail = ndInput;
-            System.out.println("Antrian Berhasil Ditambahkan!!");
         } else {
             tail.next = ndInput;
             tail = ndInput;
         }
+        System.out.println("Antrian Berhasil Ditambahkan!!");
     }
 
     Mahasiswa getData(int index) {

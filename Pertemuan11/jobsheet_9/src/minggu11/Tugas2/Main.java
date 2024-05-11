@@ -10,7 +10,7 @@ public class Main {
         System.out.println("3. Cek Antrian Terdepan");
         System.out.println("4. Cek Antrian Paling Belakang");
         System.out.println("5. Cek Semua Antrian");
-        System.out.println("6. Cek Posisi Antrian Dengan Nama");
+        System.out.println("6. Cek Nomor Antrian Dengan Nama");
         System.out.println("7. Cek Data Dengan Nomor Antrian");
         System.out.println("0. Keluar");
         System.out.println("---------------------------");
@@ -22,6 +22,8 @@ public class Main {
         LinkedList antri = new LinkedList();
 
         int i = 1;
+
+        System.out.println("=======APLIKASI ANTRIAN LAYANAN UNIT KEMAHASISWAAN=======\n");
 
         do{
             menu();
