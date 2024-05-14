@@ -379,3 +379,177 @@
     <img src = "lampiran/p31.PNG">
 
     - Gambar `a` melakukan pengecekan pada atribut size menggunakan algoritma if-else sedangkan gambar `b` melakukan pengecekan secara langsung pada atribut head.
+
+* ## 12.5 Tugas Praktikum
+1. Buat program antrian vaksinasi menggunakan queue berbasis double linked list sesuai ilustrasi dan menu di bawah ini! (counter jumlah antrian tersisa di menu cetak(3) dan data orang yang telah divaksinasi di menu Hapus Data(2) harus ada)
+
+    - Class Penerima
+    ```java
+    public class Penerima {
+        int no;
+        String nama;
+
+        Penerima(int no, String nama) {
+            this.no = no;  
+            this.nama = nama;
+        }
+    }
+    ```
+
+    - Class Node
+    ```java
+    public class Node {
+        Penerima data;
+        Node next, prev;
+
+        Node(Node prev, Penerima data, Node next) {
+            this.data = data;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
+    ```
+
+    - Class DoubleLinkedLists
+    ```java
+    public class DLL {
+        Node head;
+        int size;
+
+        DLL() {
+            head = null;
+            size = 0;
+        }
+
+        public boolean isEmpty() {
+            return head == null;
+        }
+
+        public void addLast(Penerima item) {
+            if(isEmpty()) {
+                head = new Node(null, item, null);
+                size++;
+            } else {
+                Node current = head;
+                while(current.next != null) {
+                    current = current.next;
+                }
+                Node newNode = new Node(current, item, null);
+                current.next = newNode;
+                size++;
+            }
+            System.out.println("Antrian Berhasil Ditambahkan!!!");
+        }
+
+        public void removeFirst() throws Exception {
+            Node temp = head;
+            if(isEmpty()) {
+                throw new Exception("Linked List masih kosong, tidak dapat dihapus!");
+            } else if (size == 1) {
+                head = null;
+                size--;
+                // return;
+            } else {
+                head = head.next;
+                head.prev = null;
+                size--;
+            }
+            System.out.println(temp.data.nama + " telah selesai divaksinisasi.");
+            print();
+        }
+
+        public void print() {
+            if(isEmpty()) {
+                System.out.println("Linked lists kosong");
+            } else {
+                Node tmp = head;
+                int i = 0;
+                System.out.println("------------------------------");
+                System.out.println("Daftar Pengantri Vaksin");
+                System.out.println("------------------------------");
+                System.out.println("|No.\t|Nama\t|");
+                while(tmp != null) {
+                    System.out.print("|" + tmp.data.no + "\t|" + tmp.data.nama + "\t|\n");
+                    tmp = tmp.next;
+                    i++;
+                }
+                System.out.println("Sisa Antrian: " + i);
+            }
+        }
+    }
+    ```
+
+    - Class Main
+    ```java
+    public class DLLMain {
+        public static void menu() {
+            System.out.println("\n++++++++++++++++++++++++++++++");
+            System.out.println("PENGANTRI VAKSIN EXTRAVAGANZA");
+            System.out.println("++++++++++++++++++++++++++++++\n");
+            System.out.println("1. Tambah Data Penerima Vaksin");
+            System.out.println("2. Hapus Data Pengantri Vaksin");
+            System.out.println("3. Daftar Penerima Vaksin");
+            System.out.println("4. Keluar");
+            System.out.println("++++++++++++++++++++++++++++++");
+        }
+
+        public static void main(String[] args) throws Exception {
+
+            Scanner sc = new Scanner(System.in);
+
+            DLL dll = new DLL();
+
+            do {
+                menu();
+                int pilih = sc.nextInt();
+                sc.nextLine();
+
+                switch (pilih) {
+                    case 1:
+                        System.out.println("------------------------------");
+                        System.out.println("Masukkan Data Penerima Vaksin");
+                        System.out.println("------------------------------");
+                        System.out.println("Nomor Antrian : ");
+                        int no = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Nama Penerima : ");
+                        String nama = sc.nextLine();
+                        dll.addLast(new Penerima(no, nama));
+                        break;
+
+                    case 2:
+                        dll.removeFirst();
+                        break;
+
+                    case 3:
+                        dll.print();
+                        break;
+
+                    case 4:
+                        System.exit(4);
+                        break;
+                
+                    default:
+                        System.out.println("Pilihan yang anda masukkan salah, silahkan coba lagi\n");
+                        break;
+                }
+            } while (true);
+        }
+    }
+    ```
+
+    - Input data pengantri vaksin
+
+    <img src = "lampiran/inplat1.PNG">
+
+    - Daftar antrian penerima vaksin
+
+    <img src = "lampiran/outlat1.PNG">
+
+    - Menghapus data pengantri vaksin
+
+    <img src = "lampiran/outlat2.PNG">
+
+2. Buatlah program daftar film yang terdiri dari id, judul dan rating menggunakan double linked lists, bentuk program memiliki fitur pencarian melalui ID Film dan pengurutan Rating secara descending. Class Film wajib diimplementasikan dalam soal ini.
+
+    - Class
