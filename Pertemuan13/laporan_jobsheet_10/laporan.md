@@ -139,7 +139,7 @@
     }
     ```
 
-    - Verifikasi Hasil Percobaan
+    - Verifikasi Hasil Percobaan 1
 
     <img src = "lampiran/out11.PNG">
 
@@ -266,7 +266,7 @@
     }
     ```
 
-    - Verifikasi Hasil Percobaan 
+    - Verifikasi Hasil Percobaan 2
 
     <img src = "lampiran/out21.PNG">
 
@@ -301,3 +301,81 @@
     - Jadi, pointer next dari node sebelum current akan menunjuk pada node setelah current dan pointer prev dari node setelah current akan menunjuk pada node sebelum current.
 
 * ## 12.4 Kegiatan Praktikum 3
+
+    - Tambahan Class DoubleLinkedLists
+    ```java
+    public int getFirst() throws Exception {
+        if(isEmpty()) {
+            throw new Exception("Linked List kosong");
+        }
+        return head.data;
+    }
+
+    public int getLast() throws Exception {
+        if(isEmpty()) {
+            throw new Exception("Linked List kosong");
+        } 
+        Node tmp = head;
+        while (tmp.next != null) {
+            tmp = tmp.next;
+        }
+        return tmp.data;
+    }
+
+    public int get(int index) throws Exception {
+        if (isEmpty() || index >= size) {
+            throw new Exception("Nilai indeks di luar batas");
+        }
+        Node tmp = head;
+        for (int i = 0; i < index; i++) {
+            tmp = tmp.next;
+        }
+        return tmp.data;
+    }
+    ```
+
+    - Class DoubleLinkedListsMain
+    ```java
+    public class DoubleLinkedListsMain {
+        public static void main(String[] args) throws Exception {
+            DoubleLinkedLists dll = new DoubleLinkedLists();
+
+            dll.print();
+            System.out.println("Size: " + dll.size());
+            System.out.println("==============================");
+            dll.addFirst(3);
+            dll.addLast(4);
+            dll.addFirst(7);
+            dll.print();
+            System.out.println("Size: " + dll.size());
+            System.out.println("==============================");
+            dll.add(40, 1);
+            dll.print();
+            System.out.println("Size: " + dll.size());
+            System.out.println("==============================");
+            System.out.println("Data awal pada Linked Lists adalah: " + dll.getFirst());
+            System.out.println("Data akhir pada Linked Lists adalah: " + dll.getLast());
+            System.out.println("Data indeks ke-1 pada Linked Lists adalah: " + dll.get(1));
+        }
+    }
+    ```
+
+    - Verifikasi Hasil Percobaan 3
+
+    <img src = "lampiran/out31.PNG">
+
+    ### 12.4.3 Pertanyaan
+1. Jelaskan method size() pada class DoubleLinkedLists!
+    - Untuk mengembalikan nilai dari variabel size.
+
+2. Jelaskan cara mengatur indeks pada double linked lists supaya dapat dimulai dari indeks ke-1!
+    - Caranya adalah dengan mengatur iterasi dan mengubah pointer pada method `add()` dan `get()` untuk memulai dari indeks ke-1 dan melakukan pengecekan jika i sama dengan index
+
+3. Jelaskan perbedaan karakteristik fungsi Add pada Double Linked Lists dan Single Linked Lists!
+    - Jika Single Linked Lists hanya merubah next saja karena Linked Listnya satu arah Sedangkan Double Linked Lists merubah next dan previous karena Linked Listsnya 2 arah.
+
+4. Jelaskan perbedaan logika dari kedua kode program di bawah ini!
+
+    <img src = "lampiran/p31.PNG">
+
+    - Gambar `a` melakukan pengecekan pada atribut size menggunakan algoritma if-else sedangkan gambar `b` melakukan pengecekan secara langsung pada atribut head.
