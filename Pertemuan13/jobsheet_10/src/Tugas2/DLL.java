@@ -138,7 +138,7 @@ public class DLL {
         }
     }
 
-    public int search(int id) {
+    public void search(int id) {
         int posisi = -1;
         Node current = head;
         int i = 1;
@@ -150,14 +150,15 @@ public class DLL {
             current = current.next;
             i++;
         }
-        return posisi;
-    }
 
-    public void position(int id, int pos) {
-        if (pos != -1) {
-            System.out.println("ID: " + id + ", ditemukan pada urutan ke-" + pos);
+        if (posisi != -1) {
+            System.out.println("Data Id Film: " + id + ", berada pada urutan ke-" + posisi);
+            System.out.println("IDENTITAS");
+            System.out.println("  ID Film: " + current.data.id);
+            System.out.println("  Judul Film: " + current.data.judul);
+            System.out.println("  Rating Film: " + current.data.rating);
         } else {
-            System.out.println("ID: " + id + ", tidak ditemukan");
+            System.out.println("Data Id Film: " + id + ", tidak ditemukan");
         }
     }
 

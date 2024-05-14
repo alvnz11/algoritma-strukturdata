@@ -89,7 +89,7 @@ public class Main {
                 case 8:
                     System.out.println("Masukkan ID Film yang dicari: ");
                     int idx2 = sc.nextInt();
-                    dll.position(idx2, dll.search(idx2));
+                    dll.search(idx2);
                     break;
 
                 case 9:
