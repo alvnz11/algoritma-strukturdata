@@ -10,7 +10,6 @@ public class Main {
         System.out.println("| 2. Tambah Data Klub IBL      |");
         System.out.println("| 3. Hapus Data Klub IBL       |");
         System.out.println("| 4. Pencarian Data Klub       |");
-        System.out.println("| 5. Edit Data Klub            |");
         System.out.println("| 0. Keluar                    |");
         System.out.println("+------------------------------+");
         System.out.print("Masukkan pilihan anda: ");
@@ -114,8 +113,8 @@ public class Main {
                     int searchMenu = sc.nextInt();
                     switch (searchMenu) {
                         case 1:
-                        dll.searchName(searchName());
-                        break;
+                            dll.searchName(searchName());
+                            break;
 
                         case 2:
                             dll.searchRank(searchRank());
@@ -127,19 +126,14 @@ public class Main {
                     }
                     break;
 
-                case 5:
-                    
-                    break;
-
                 case 0:
                     System.exit(0);
                     break;
             
                 default:
                     System.out.println("Inputan salah!, Coba Lagi!!");
-                    break;
+                    break;         
             }
         }
-
     }
 }
