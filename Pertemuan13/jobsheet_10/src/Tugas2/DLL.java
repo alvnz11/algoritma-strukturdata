@@ -1,7 +1,5 @@
 package Tugas2;
 
-import Latihan.Hotel;
-
 public class DLL {
     Node head;
     int size;
@@ -166,7 +164,7 @@ public class DLL {
         Node current;
         Node index;
         Film temp;
-    
+
         if (!isEmpty()) {
             current = head;
             while (current != null) {
