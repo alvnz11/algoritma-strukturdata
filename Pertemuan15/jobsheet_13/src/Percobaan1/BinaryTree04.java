@@ -9,27 +9,49 @@ public class BinaryTree04 {
         return root != null;
     }
 
+    // void add(int data) {
+    //     if(!isEmpty()) {
+    //         root = new Node04(data);
+    //     } else {
+    //         Node04 current = root;
+    //         while (true) { 
+    //             if(data > current.data) {
+    //                 if(current.right == null) {
+    //                     current.right = new Node04(data);
+    //                 } else {
+    //                     current = current.right;
+    //                 }
+    //             } else if(data < current.data) {
+    //                 if(current.left == null) {
+    //                     current.left = new Node04(data);
+    //                 } else {
+    //                     current = current.left;
+    //                 }
+    //             } else {
+    //                 break;
+    //             }
+    //         }
+    //     }
+    // }
+
     void add(int data) {
-        if(!isEmpty()) {
+        addRekursif(root, data);
+    }
+
+    void addRekursif(Node04 node, int data) {
+        if (!isEmpty()) {
             root = new Node04(data);
-        } else {
-            Node04 current = root;
-            while (true) { 
-                if(data > current.data) {
-                    if(current.right == null) {
-                        current.right = new Node04(data);
-                    } else {
-                        current = current.right;
-                    }
-                } else if(data < current.data) {
-                    if(current.left == null) {
-                        current.left = new Node04(data);
-                    } else {
-                        current = current.left;
-                    }
-                } else {
-                    break;
-                }
+        } else if (data > node.data) {
+            if (node.right == null) {
+                node.right = new Node04(data);
+            } else {
+                addRekursif(node.right, data);
+            }
+        } else if (data < node.data) {
+            if (node.left == null) {
+                node.left = new Node04(data);
+            } else {
+                addRekursif(node.left, data);
             }
         }
     }
