@@ -256,3 +256,65 @@
 
     - Pertama dilakukan pengecekan apakah data yang akan dimasukkan lebih kecil dari current.data. Jika ya dilakukan pengecekan lagi apakah left dari current.data null atau tidak. jika tidak null, maka nilai dari current digantikan dengan left-child dari current dan iterasi akan diulang sampai left-child dari current bernilai null. Jika left-child sudah bernilai null maka data akan dimasukkan disana(left-child dari current).
     
+* ## 13.3 Kegiatan Praktikum 2
+
+    - Class BinaryTreeArray04
+    ```java
+    public class BinaryTreeArray04 {
+        int[] data;
+        int idxLast;
+
+        public BinaryTreeArray04() {
+            data = new int[10];
+        }
+
+        void populateData(int data[], int idxLast) {
+            this.data = data;
+            this.idxLast = idxLast;
+        }
+
+        void traverseInOrder(int idxStart) {
+            if(idxStart <= idxLast) {
+                traverseInOrder(2*idxStart+1);
+                System.out.print(data[idxStart] + " ");
+                traverseInOrder(2*idxStart+2);
+            }
+        }
+    }
+    ```
+
+    - Class BinaryTreeMain04
+    ```java
+    public class BinaryTreeMain04 {
+        public static void main(String[] args) {
+            BinaryTreeArray04 bta = new BinaryTreeArray04();
+            int[] data = {6, 4, 8, 3, 5, 7, 9, 0, 0, 0};
+            int idxLast = 6;
+            bta.populateData(data, idxLast);
+            System.out.print("\nInOrder Traversal: ");
+            bta.traverseInOrder(0);
+            System.out.println("\n");
+        }
+    }
+    ```
+
+    - Verifikasi Hasil Percobaan 2
+
+    <img src = "lampiran/out22.PNG">
+
+    ### 13.2.2 Pertanyaan Percobaan
+1. Apakah kegunaan dari atribut data dan idxLast yang ada di class BinaryTreeArray?
+    - Atribut data digunakan untuk menampung data dari Main yang akan diolah dan atrbut idxLast digunakan untuk menentukan batasan dari data yang akan digunakan
+
+2. Apakah kegunaan dari method populateData()?
+    - Untuk menginisialisasi atribut data dan idxLast
+
+3. Apakah kegunaan dari method traverseInOrder()?
+    - Untuk membuat tree secara traverseInOrder dan menampilkannya dengan menggunakan rumus `2*idxStart+1` untuk left-child dan `2*idxStart+2` untuk right-child
+
+4. Jika suatu node binary tree disimpan dalam array indeks 2, maka di indeks berapakah posisi left child dan rigth child masing-masing?
+    - left-child : indeks 5 dan right-child : 6
+
+5. Apa kegunaan statement int idxLast = 6 pada praktikum 2 percobaan nomor 4?
+    - Untuk memberi batasan array yang digunakan hanya sampai index ke-6
+    
