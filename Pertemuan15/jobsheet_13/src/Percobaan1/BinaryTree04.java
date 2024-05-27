@@ -175,4 +175,20 @@ public class BinaryTree04 {
             }
         }
     }
+
+    void dataMax() {
+        Node04 current = root;
+        while (current.right != null) { 
+            current = current.right;
+        }
+        System.out.println("Nilai paling besar : " + current.data);
+    }
+
+    void dataMin() {
+        Node04 current = root;
+        while (current.left != null) { 
+            current = current.left;
+        }
+        System.out.println("Nilai paling kecil : " + current.data);
+    }
 }

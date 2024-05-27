@@ -26,5 +26,7 @@ public class BinaryTreeMain04 {
         System.out.print("PreOrder Traversal : ");
         bt.traversePreOrder(bt.root);
         System.out.println();
+        bt.dataMax();
+        bt.dataMin();
     }
 }
