@@ -318,3 +318,49 @@
 5. Apa kegunaan statement int idxLast = 6 pada praktikum 2 percobaan nomor 4?
     - Untuk memberi batasan array yang digunakan hanya sampai index ke-6
     
+* ## 13.4 Tugas Praktikum
+1. Buat method di dalam class BinaryTree yang akan menambahkan node dengan cara rekursif.
+    - Perubahan Method add()
+        ```java
+        void add(int data) {
+            addRekursif(root, data);
+        }
+
+        void addRekursif(Node04 node, int data) {
+            if (!isEmpty()) {
+                root = new Node04(data);
+            } else if (data > node.data) {
+                if (node.right == null) {
+                    node.right = new Node04(data);
+                } else {
+                    addRekursif(node.right, data);
+                }
+            } else if (data < node.data) {
+                if (node.left == null) {
+                    node.left = new Node04(data);
+                } else {
+                    addRekursif(node.left, data);
+                }
+            }
+        }
+        ```
+
+    - Output
+
+        <img src = "lampiran/outlat1.PNG">
+
+2. Buat method di dalam class BinaryTree untuk menampilkan nilai paling kecil dan yang paling besar yang ada di dalam tree.
+    - Method 
+
+3. Buat method di dalam class BinaryTree untuk menampilkan data yang ada di leaf.
+    - a
+
+4. Buat method di dalam class BinaryTree untuk menampilkan berapa jumlah leaf yang ada di dalam tree.
+    - a
+
+5. Modifikasi class BinaryTreeArray, dan tambahkan :
+
+    • method add(int data) untuk memasukan data ke dalam tree
+
+    • method traversePreOrder() dan traversePostOrder()
+    - a
