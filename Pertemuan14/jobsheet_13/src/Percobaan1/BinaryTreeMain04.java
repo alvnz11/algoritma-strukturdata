@@ -28,5 +28,9 @@ public class BinaryTreeMain04 {
         System.out.println();
         bt.dataMax();
         bt.dataMin();
+        System.out.print("Leaf : ");
+        bt.printLeaf(bt.root);
+        System.out.println();
+        System.out.println("Jumlah leaf : " + bt.countLeaf(bt.root));
     }
 }

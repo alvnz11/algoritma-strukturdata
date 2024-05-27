@@ -191,4 +191,25 @@ public class BinaryTree04 {
         }
         System.out.println("Nilai paling kecil : " + current.data);
     }
+
+    void printLeaf(Node04 node) {
+        if (node == null) {
+            return;
+        }
+        if (node.left == null && node.right == null) {
+            System.out.print(node.data + " ");
+        }
+        printLeaf(node.left);
+        printLeaf(node.right);
+    }
+
+    int countLeaf(Node04 node) {
+        if (node == null) {
+            return 0;
+        }
+        if (node.left == null && node.right == null) {
+            return 1;
+        }
+        return countLeaf(node.left) + countLeaf(node.right);
+    }
 }
