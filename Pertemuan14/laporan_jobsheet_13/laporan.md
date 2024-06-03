@@ -350,17 +350,131 @@
         <img src = "lampiran/outlat1.PNG">
 
 2. Buat method di dalam class BinaryTree untuk menampilkan nilai paling kecil dan yang paling besar yang ada di dalam tree.
-    - Method 
+    - Method `dataMax()` dan `dataMin()`
+        ```java
+        void dataMax() {
+            Node04 current = root;
+            while (current.right != null) { 
+                current = current.right;
+            }
+            System.out.println("Nilai paling besar : " + current.data);
+        }
+
+        void dataMin() {
+            Node04 current = root;
+            while (current.left != null) { 
+                current = current.left;
+            }
+            System.out.println("Nilai paling kecil : " + current.data);
+        }
+        ```
+
+    - Output
+
+        <img src = "lampiran/outlat2.PNG">
 
 3. Buat method di dalam class BinaryTree untuk menampilkan data yang ada di leaf.
-    - a
+    - Method `printLeaf()`
+        ```java
+        void printLeaf(Node04 node) {
+            if (node == null) {
+                return;
+            }
+            if (node.left == null && node.right == null) {
+                System.out.print(node.data + " ");
+            }
+            printLeaf(node.left);
+            printLeaf(node.right);
+        }
+        ```
+
+    - Output
+
+        <img src = "lampiran/outlat3.PNG">
 
 4. Buat method di dalam class BinaryTree untuk menampilkan berapa jumlah leaf yang ada di dalam tree.
-    - a
+    - Method `countLeaf()`
+        ```java
+        int countLeaf(Node04 node) {
+            if (node == null) {
+                return 0;
+            }
+            if (node.left == null && node.right == null) {
+                return 1;
+            }
+            return countLeaf(node.left) + countLeaf(node.right);
+        }
+        ```
+
+    - Output
+
+        <img src = "lampiran/outlat4.PNG">
 
 5. Modifikasi class BinaryTreeArray, dan tambahkan :
 
     • method add(int data) untuk memasukan data ke dalam tree
 
     • method traversePreOrder() dan traversePostOrder()
-    - a
+
+    - Method add()
+        ```java
+        public void add(int input) {
+            data[idxLast] = input;
+            idxLast++;
+            
+            int currentIndex = idxLast - 1;
+            while (currentIndex > 0) {
+                int parentIndex = (currentIndex - 1) / 2;
+                if (data[currentIndex] < data[parentIndex]) {
+                    int temp = data[currentIndex];
+                    data[currentIndex] = data[parentIndex];
+                    data[parentIndex] = temp;
+                    currentIndex = parentIndex;
+                } else {
+                    break;
+                }
+            }
+        }
+        ```
+
+    - Method traversePreOrder() dan traversePostOrder()
+        ```java
+        public void traversePreOrder(int idxStart) {
+            if (idxStart < idxLast) {
+                System.out.print(data[idxStart] + " ");
+                traversePreOrder(2 * idxStart + 1);
+                traversePreOrder(2 * idxStart + 2);
+            }
+        }
+
+        public void traversePostOrder(int idxStart) {
+            if (idxStart < idxLast) {
+                traversePostOrder(2 * idxStart + 1);
+                traversePostOrder(2 * idxStart + 2);
+                System.out.print(data[idxStart] + " ");
+            }
+        }
+        
+    - class `BinaryTreeMain04()` :
+        ```java
+        public static void main(String[] args) {
+            BinaryTreeArray04 bta = new BinaryTreeArray04();
+            int[] data = {6, 4, 8, 3, 5, 7, 9, 0, 0, 0};
+            int idxLast = 6;
+            bta.populateData(data, idxLast);
+            System.out.print("\nInOrder Traversal: ");
+            bta.traverseInOrder(0);
+            System.out.println();
+            System.out.print("\nPreOrder Traversal: ");
+            bta.traversePreOrder(0);
+            System.out.println();
+            System.out.print("\nPostOrder Traversal: ");
+            bta.traversePostOrder(0);
+            bta.add(19);
+            System.out.println();
+        }
+        ```
+    - Output
+
+        <img src = "lampiran/outlat5.PNG">
+    
