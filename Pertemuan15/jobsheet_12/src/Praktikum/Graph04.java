@@ -83,4 +83,27 @@ public class Graph04 {
             System.out.println("Gedung " + (char) ('A' + asal) + " dan " + (char) ('A' + tujuan) + " tidak bertetangga");
         }
     }
+
+    public void updateJarak(int asal, int tujuan, int jarakBaru) throws Exception {
+        boolean cek = false;
+        for(int i = 0; i < list[asal].size(); i++) {
+            if(list[asal].get(i) == tujuan) {
+                cek = true;
+            }
+        }
+        if (cek == true) {
+            list[asal].updateJarak(tujuan, jarakBaru);
+            System.out.println("Jarak Gedung " + (char) ('A' + asal) + " dan " + (char) ('A' + tujuan) + " diperbarui menjadi " + jarakBaru + " m");
+        } else {
+            System.out.println("Gedung " + (char) ('A' + asal) + " dan " + (char) ('A' + tujuan) + " tidak bertetangga");
+        }
+    }
+
+    public void hitungEdge() {
+        int jml = 0;
+        for (int i = 0; i < vertex; i++) {
+            jml += list[i].size();
+        }
+        System.out.println("Jumlah Edge dari Graph: " + jml);
+    }
 }

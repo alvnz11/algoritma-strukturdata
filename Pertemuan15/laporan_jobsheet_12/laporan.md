@@ -330,3 +330,194 @@
     - Output
 
     <img src = "lampiran/out22.PNG">
+
+* ## 3. Latihan Praktikum
+
+1. Modifikasi kode program pada class GraphMain sehingga terdapat menu program yang bersifat dinamis, setidaknya terdiri dari:
+
+    a) Add Edge
+
+    b) Remove Edge
+
+    c) Degree
+
+    d) Print Graph
+
+    e) Cek Edge
+
+    Pengguna dapat memilih menu program melalui input Scanner
+    - class `GraphMain()`
+    ```java
+    public class GraphMain04 {
+        public static int menu() {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("+------------------------------+");
+            System.out.println("|--------- Menu Graph ---------|");
+            System.out.println("|------------------------------|");
+            System.out.println("| 1. Tambahkan Edge            |");
+            System.out.println("| 2. Hapus Edge                |");
+            System.out.println("| 3. Hapus Semua Edge          |");
+            System.out.println("| 4. Cek Degree                |");
+            System.out.println("| 5. Print Graph               |");
+            System.out.println("| 6. Cek Edge                  |");
+            System.out.println("| 0. Keluar                    |");
+            System.out.println("+------------------------------+");
+            System.out.print("Masukkan pilihan anda: ");
+            int menu = sc.nextInt();
+            return menu;
+        }
+
+        public static void main(String[] args) throws Exception {
+            Scanner sc = new Scanner(System.in);
+            Graph04 gedung = new Graph04(6);
+            
+            while (true) {
+                int pilih = menu();
+                System.out.println();
+                switch (pilih) {
+                    case 0:
+                    System.exit(0);
+                    break;
+                    
+                    case 1:
+                        System.out.println("|--------------------|");
+                        System.out.println("|  MENAMBAHKAN EDGE  |");
+                        System.out.println("|--------------------|\n");
+                        System.out.print("Masukkan gedung asal [index dari 0]: ");
+                        int asal = sc.nextInt();
+                        System.out.print("Masukkan gedung tujuan [index dari 0]: ");
+                        int tujuan = sc.nextInt();
+                        System.out.print("Masukkan Jarak: ");
+                        int jarak = sc.nextInt();
+                        gedung.addEdge(asal, tujuan, jarak);
+                    break;
+
+                    case 2:
+                        System.out.println("|--------------------|");
+                        System.out.println("|   MENGHAPUS EDGE   |");
+                        System.out.println("|--------------------|\n");
+                        System.out.print("Masukkan gedung asal [index dari 0]: ");
+                        int asal1 = sc.nextInt();
+                        System.out.print("Masukkan gedung tujuan [index dari 0]: ");
+                        int tujuan1 = sc.nextInt();
+                        gedung.removeEdge(asal1, tujuan1);
+                    break;
+
+                    case 3:
+                        System.out.print("Apakah anda yakin ingin menghapus semua edge? [y/n] : ");
+                        char p = sc.next().charAt(0);
+                        if (p == 'y') {
+                            gedung.removeAllEdge();
+                        } else if (p == 'n') {
+                            System.out.println("Penghapusan seluruh edge dibatalkan!!");
+                        }
+                    break;
+                    
+                    case 4:
+                        System.out.println("Masukkan index gedung [index dari 0]: ");
+                        int index = sc.nextInt();
+                        gedung.degree(index);
+                    break;
+
+                    case 5:
+                        gedung.printGraph();
+                    break;
+
+                    case 6:
+                        System.out.print("Masukkan gedung asal: ");
+                        int asal2 = sc.nextInt();
+                        System.out.print("Masukkan gedung tujuan: ");
+                        int tujuan2 = sc.nextInt();
+                        gedung.cekEdge(asal2, tujuan2);
+                    break;
+                }
+            }
+        }
+    }
+    ```
+
+    - Output Menu
+
+    <img src = "lampiran/outlat1.PNG">
+
+    - Output Menambahkan Edge
+
+    <img src = "lampiran/outlat2.PNG">
+
+    - Output Print Edge
+
+    <img src = "lampiran/outlat3.PNG">
+
+    - Output Menghapus Edge
+
+    <img src = "lampiran/outlat4.PNG">
+
+    
+2. Tambahkan method updateJarak pada Percobaan 1 yang digunakan untuk mengubah jarak antara dua node asal dan tujuan!
+    - Penambahan method `updateJarak()` di class Graph04
+    ```java
+    public void updateJarak(int asal, int tujuan, int jarakBaru) throws Exception {
+        boolean cek = false;
+        for(int i = 0; i < list[asal].size(); i++) {
+            if(list[asal].get(i) == tujuan) {
+                cek = true;
+            }
+        }
+        if (cek == true) {
+            list[asal].updateJarak(tujuan, jarakBaru);
+            System.out.println("Jarak Gedung " + (char) ('A' + asal) + " dan " + (char) ('A' + tujuan) + " diperbarui menjadi " + jarakBaru + " m");
+        } else {
+            System.out.println("Gedung " + (char) ('A' + asal) + " dan " + (char) ('A' + tujuan) + " tidak bertetangga");
+        }
+    }
+    ```
+
+    - Penambahan method `updateJarak()` di class DoubleLinkedList04
+    ```java
+    public void updateJarak(int tujuan, int jarakBaru) throws Exception {
+        Node04 current = head;
+        boolean cek = false;
+        while (current != null) {
+            if (current.data == tujuan) {
+                current.jarak = jarakBaru;
+                cek = true;
+                break;
+            }
+            current = current.next;
+        }
+        if (!cek) {
+            throw new Exception("Tujuan tidak ditemukan dalam daftar");
+        }
+    }
+    ```
+
+    - Penambahan case di class main
+    ```java
+    System.out.print("Masukkan gedung asal: ");
+    int asal3 = sc.nextInt();
+    System.out.print("Masukkan gedung tujuan: ");
+    int tujuan3 = sc.nextInt();
+    System.out.print("Masukkan jarak baru: ");
+    int jarakBaru = sc.nextInt();
+    gedung.updateJarak(asal3, tujuan3, jarakBaru);
+    ```
+
+    - Output
+
+    <img src = "lampiran/outlat5.PNG">
+
+3. Tambahkan method hitungEdge untuk menghitung banyaknya edge yang terdapat di dalam graf!
+    - Method `hitungEdge()`
+    ```java
+    public void hitungEdge() {
+        int jml = 0;
+        for (int i = 0; i < vertex; i++) {
+            jml += list[i].size();
+        }
+        System.out.println("Jumlah Edge dari Graph: " + jml);
+    }
+    ```
+
+    - Output
+
+    <img src = "lampiran/outlat6.PNG">
