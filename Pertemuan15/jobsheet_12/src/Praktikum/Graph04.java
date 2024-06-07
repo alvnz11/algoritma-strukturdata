@@ -14,6 +14,7 @@ public class Graph04 {
 
     public void addEdge(int asal, int tujuan, int jarak) {
         list[asal].addFirst(tujuan, jarak);
+        System.out.println("Edge Berhasil Ditambahkan!\n");
         // undirect graph
         //list[tujuan].addFirst(asal, jarak);
     }
@@ -46,13 +47,14 @@ public class Graph04 {
                 list[asal].remove(tujuan);
             }
         }
+        System.out.println("Edge Berhasil Dihapus!\n");
     }
 
     public void removeAllEdge() {
         for(int i = 0; i < vertex; i++) {
             list[i].clear();
         }
-        System.out.println("Graph berhasil dikosongkan!");
+        System.out.println("Graph Berhasil Dikosongkan!\n");
     }
 
     public void printGraph() throws Exception {
@@ -63,8 +65,22 @@ public class Graph04 {
                     System.out.print((char) ('A' + list[i].get(j)) + " (" + list[i].getJarak(j) + " m), ");
                 }
                 System.out.println();
-            }
+            } 
         }
         System.out.println();
+    }
+
+    public void cekEdge(int asal, int tujuan) throws Exception {
+        boolean cek = false;
+        for(int i = 0; i < list[asal].size(); i++) {
+            if(list[asal].get(i) == tujuan) {
+                cek = true;
+            }
+        }
+        if(cek == true) {
+            System.out.println("Gedung " + (char) ('A' + asal) + " dan " + (char) ('A' + tujuan) + " bertetangga");
+        } else {
+            System.out.println("Gedung " + (char) ('A' + asal) + " dan " + (char) ('A' + tujuan) + " tidak bertetangga");
+        }
     }
 }
