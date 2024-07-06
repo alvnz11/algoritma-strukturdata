@@ -1,5 +1,3 @@
-package Praktikum;
-
 public class Graph04 {
     int vertex;
     DoubleLinkedList04 list[];

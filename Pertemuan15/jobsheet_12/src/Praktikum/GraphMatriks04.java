@@ -1,5 +1,3 @@
-package Praktikum;
-
 public class GraphMatriks04 {
     int vertex;
     int [][] matriks;

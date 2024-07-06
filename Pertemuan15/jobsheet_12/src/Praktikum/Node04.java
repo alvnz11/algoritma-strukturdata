@@ -1,5 +1,3 @@
-package Praktikum;
-
 public class Node04 {
     int data;
     Node04 prev, next;

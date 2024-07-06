@@ -1,5 +1,3 @@
-package Praktikum;
-
 import java.util.Scanner;
 
 public class GraphMain04 {

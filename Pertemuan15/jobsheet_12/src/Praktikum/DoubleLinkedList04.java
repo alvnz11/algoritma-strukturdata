@@ -1,4 +1,4 @@
-package Praktikum;
+
 
 public class DoubleLinkedList04 {
     Node04 head;
